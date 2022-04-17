@@ -36,3 +36,7 @@ class ApiRequest:
     @property
     def args(self):
         return self.query_params()
+
+    @property
+    def headers(self):
+        return self.event["headers"]
