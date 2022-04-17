@@ -19,7 +19,7 @@ class LambdaRouter:
         return decorator
 
     def set_request_class(self, request_class):
-        """Set the request class"""
+        """You can set the request class instead of using the default `ApiRequest`"""
         self._request_class = request_class
 
     def get_request_class(self):

@@ -36,6 +36,3 @@ class ApiRequest:
     @property
     def args(self):
         return self.query_params()
-
-    def get_method(self):
-        return self.event["httpMethod"]
