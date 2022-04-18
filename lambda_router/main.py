@@ -30,7 +30,7 @@ class LambdaRouter:
         """Handle OPTIONS requests"""
         return ", ".join(self.list_routes()[request.path])
 
-    def run(self, event, context=None):
+    def run(self, event, context=None, *args, **kwargs):
         """Run the requested route"""
         request = self.get_request_class()(event, context)
 
@@ -43,7 +43,7 @@ class LambdaRouter:
         if request.method == "OPTIONS":
             return f"{self.handle_options(request)}"
 
-        return self._routes[request.path]["function"](request)
+        return self._routes[request.path]["function"](request, *args, **kwargs)
 
     def list_routes(self):
         """List all registered routes"""
